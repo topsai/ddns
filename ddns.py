@@ -98,15 +98,14 @@ def update_dns(dns_rr, dns_type, dns_value, dns_record_id, dns_ttl, dns_format):
     return result
 
 
-# def write_to_file():
-#     time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-#     current_script_path = sys.path[7]
-#     print current_script_path
-#     log_file = current_script_path + '/' + 'aliyun_ddns_log.txt'
-#     write = open(log_file, 'a')
-#     write.write(time_now + ' ' + str(rc_value) + '\n')
-#     write.close()
-#     return
+def write_to_file(log):
+    time_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    current_script_path = sys.path[7]
+    print current_script_path
+    log_file = current_script_path + '/' + 'aliyun_ddns_log.txt'
+    write = open(log_file, 'a')
+    write.write(time_now + ' ' + log + '\n')
+    write.close()
 
 
 if __name__ == '__main__':
@@ -116,11 +115,13 @@ if __name__ == '__main__':
     rc_value_old = old_ip()
 
     if rc_value_old == rc_value:
-        print '地址无变化：{}'.format(rc_value_old)
+        log = '地址无变化：{}'.format(rc_value_old)
     else:
         # 更新地址
         ret = json.loads(update_dns(rc_rr, rc_type, rc_value, rc_record_id, rc_ttl, rc_format))
         if ret.get('RecordId') == rc_record_id:
-            print '修改成功'
+            log = '修改成功：{}'.format(rc_value)
         else:
-            print '修改失败'
+            log = '修改失败：{}'.format(rc_value_old)
+
+    write_to_file(log)
