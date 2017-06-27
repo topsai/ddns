@@ -13,20 +13,20 @@ from aliyunsdkalidns.request.v20150109 import UpdateDomainRecordRequest, Describ
 from aliyunsdkcore import client
 
 # 请填写你的Access Key ID
-access_key_id = "LTAIZQFS0KhC036k"
+access_key_id = "#"
 
 # 请填写你的Access Key Secret
-access_Key_secret = "C2H3RFkSbgMMkUk7jVAmC1CHO3Ztaf"
+access_Key_secret = "#"
 
 # 请填写你的账号ID
-account_id = "31655929"
+account_id = "#"
 
 # 如果选择yes，则运行程序后仅现实域名信息，并不会更新记录，用于获取解析记录ID。
 # 如果选择NO，则运行程序后不显示域名信息，仅更新记录
 i_dont_know_record_id = 'no'
 
 # 请填写你的一级域名
-rc_domain = 'codefarmer.site'
+rc_domain = '#'
 
 # 请填写你的解析记录
 rc_rr = '*'
@@ -35,7 +35,7 @@ rc_rr = '*'
 rc_type = 'A'
 
 # 请填写解析记录ID
-rc_record_id = '3433005921192960'
+rc_record_id = '#'
 
 # 请填写解析有效生存时间TTL，单位：秒
 rc_ttl = '10'
